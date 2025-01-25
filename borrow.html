@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrow</title>
+    <style type="text/css">
+           #nav {
+            position: fixed;
+            right: 5cap;
+            font-size: larger;
+        }
+
+        #logo {
+            position: fixed;
+            left: 5%;
+        }
+
+        a {
+            text-decoration: none;
+            font-family:fantasy;
+            color: black;
+            border-width: 5px;
+            font: bold;
+            text-shadow: #333;
+            font-style: oblique;        }
+
+        .link:hover {
+            color: white;
+            border-color: whitesmoke;
+            background-color: #DFCAA0;
+        }
+    </style>
+</head>
+<body style="box-sizing: border-box; background: #DFCAA0;">
+    <div style="position: fixed; height: 7cap;width: 205vh;right: 1%;left: 1%; background-color: #C8AD7E;box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);"></div>
+    <span id="MINERVA" style="position: absolute; left: 10%;">
+        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: black;">MINERVA
+            LIBRARY</h1>
+    </span>
+    <div id="nav">
+        <nav>
+            <ul>
+                <span id="logo"><a href="index.html" class="book-link">
+                        <div class="book-logo">
+                            <div class="book-spine"></div>
+                            HHOME
+                        </div>
+                    </a></span>
+                <a href="" class="link"><u>Donate</u> &nbsp;</a>
+                <a href="" class="link"><u>Borrow</u> &nbsp;</a>
+                <a href="" class="link"><u>Records</u> &nbsp;</a>
+                <a href="" class="link"><u>Account</u> &nbsp;</a>
+            </ul>
+        </nav>
+    </div>
+    <div style="position:static;background-color: #FFFDE7;">
+        
+            <img src="homepage.jpg" alt="homepage" style="position: absolute;height: 60vh; left: 18%; right: 25%;top: 13cap; opacity: 70%;">    
+    <div style="position: relative; top: 15cap; opacity: 85%;text-align: center;left: 30%;right: 25%;
+border-top: 10px solid #333; border-bottom: 5px solid #333 ;width:80vh;height:50vh;border-right: 5px solid #333 ;border-left: 5px solid #333; 
+box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.2); background-color: #FFEFCB;">
+    <h1><i>Borrow a Book</i></h1>
+    <div style=" position: relative;text-align: center; background-color:#DFCAA0;padding: 10vh;border: 5px solid #333">
+    <form>
+    <input type="number" placeholder="Enter Student ID">
+    <input type="date" id="date">
+    <br><br>
+    <input type="text" placeholder="Enter Book Name">
+    <input type="number" id="number" placeholder="Enter no of books" max="5">
+    <br><br>
+    <input type="submit">
+    </form>
+    </div>
+
+    <div style="position:fixed; left: 42vh;top: 50%; background-color:#aa9065; height: 8vh; border: 5px solid#333;">
+        <br> <a href="index.html" style="align-items: center;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><span style="background-color: whitesmoke;">TO HOMEPAGE</span></a>
+    </div>
+    
+    <div style="position: fixed; right: 42vh;top: 50%; background-color: #aa9065; height:8vh ;border: 5px solid#333">
+     
+        <br> <a href="  " style="align-items: center;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><span style="background-color: whitesmoke;">VIEW RECORDS</span></a>
+    </div>
+    </div>
+    <script>
+        function setCurrentDate() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0'); 
+            const day = String(today.getDate()).padStart(2, '0'); 
+
+            const formattedDate = `${year}-${month}-${day}`;
+            document.getElementById('date').value = formattedDate;
+        }
+        setCurrentDate();
+
+        const quantityInput = document.getElementById('number');
+        quantityInput.addEventListener('input', function() {
+            const maxValue = parseInt(quantityInput.getAttribute('max'));
+            if (parseInt(quantityInput.value) > maxValue) {
+                quantityInput.value = maxValue;
+                alert("Only 5 books can be borrowed at a time")
+            }
+        });
+    </script>
+</body>
+</html>
