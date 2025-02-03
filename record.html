@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Records</title>
+    <style type="text/css">
+        #nav {
+            position: fixed;
+            right: 5cap;
+            font-size: larger;
+        }
+
+        #logo {
+            position: fixed;
+            left: 5%;
+        }
+
+        a {
+            text-decoration: none;
+            font-family: fantasy;
+            color: black;
+            border-width: 5px;
+            font: bold;
+            text-shadow: #333;
+            font-style: oblique;
+        }
+
+        .link:hover {
+            color: white;
+            border-color: whitesmoke;
+            background-color: #DFCAA0;
+        }
+        #pgbody{
+            text-align: center;
+            position: relative;
+            top: 20vh;
+        }
+        .table1, .table2{
+            font-size: large;
+            td {padding: 6vh;}
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            opacity: 80%;
+        }
+        .table1{
+            position: absolute;
+            left: 0vh;
+            top: 20vh;
+        }
+        .table2{
+            position: absolute;
+            right: 0vh;
+            top: 20vh;
+        }
+        table,th,td{
+            border:5px solid whitesmoke ;
+            border-collapse: collapse;
+            background-color: #C8AD7E;
+        }
+        .book-logo {
+            position: relative;
+            width: 50px;
+            height: 60px;
+            background-color: #e53935;
+            /* Red background for the cover */
+            border-radius: 8px 8px 4px 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .book-logo:hover {
+            transform: scale(1.1);
+        }
+
+        .book-logo::before,
+        .book-logo::after {
+            content: "";
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            height: 5px;
+            background-color: #fff;
+            /* Pages color */
+        }
+
+        .book-logo::before {
+            left: 0;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .book-logo::after {
+            bottom: 10px;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .book-logo .book-spine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 100%;
+            background-color: #333;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .book-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body style="box-sizing: border-box; background-color:#e2cca1;">
+    <div
+        style="position: fixed; height: 7cap;width: 205vh;right: 1%;left: 1%; background-color: #C8AD7E;box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);">
+    </div>
+    <span id="MINERVA" style="position: absolute; left: 10%;">
+        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: black;">MINERVA
+            LIBRARY</h1>
+    </span>
+        <div id="nav">
+        <nav>
+            <ul>
+                <span id="logo"><a href="index.html" class="book-link">
+                        <div class="book-logo">
+                            <div class="book-spine"></div>
+                            HHOME
+                        </div>
+                    </a></span>
+                <a href="donate.html" class="link"><u>Donate</u> &nbsp;</a>
+                <a href="borrow.html" class="link"><u>Borrow</u> &nbsp;</a>
+                <a href="record.html" class="link"><u>Records</u> &nbsp;</a>
+                <a href="" class="link"><u>Account</u> &nbsp;</a>
+            </ul>
+        </nav>
+        </div>
+
+    <div id="pgbody">
+
+        <h1 style="background-color: #C8AD7E;text-align: center;box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.2);">RECORDS</h1>
+        <img src="homepage.jpg" alt="background"  style="position: absolute; top: 15vh;left: 20vh;width: 130vh;opacity: 75%">
+        <h1 style="position: absolute; left: 75vh;top: 20vh;color: whitesmoke;">MINERVA</h1>
+        <table class="table1">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Books</th>
+                <th scope="col">Action</th>
+                <th scope="col">Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Lord of the rings</td>
+                <td>Donated</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>....</td>
+                <td>.....</td>
+                <td>....</td>
+                <td>....</td>
+              </tr>
+              <tr>
+                <td>....</td>
+                <td>.....</td>
+                <td>....</td>
+                <td>....</td>
+              </tr>
+            </tbody>
+          </table>
+    <table class="table2">
+        <thead>
+          <tr>
+            <th scope="col">Book</th>
+            <th scope="col">Status</th>
+            <th scope="col">Books left</th>
+            <th scope="col">Date of availability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Harry Potter</td>
+            <td>Not available</td>
+            <td>0</td>
+            <td>----</td>
+          </tr>
+          <tr>
+            <td>....</td>
+                <td>.....</td>
+                <td>....</td>
+                <td>....</td>
+          </tr>
+          <tr>
+            <td>....</td>
+                <td>.....</td>
+                <td>....</td>
+                <td>....</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</body>
+</html>
