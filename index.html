@@ -8,13 +8,13 @@
     <style>
         #nav {
             position: fixed;
-            right: 5vh;
+            right: 5vw;
             font-size: larger;
         }
 
         #logo {
             position: fixed;
-            left: 5%;
+            left: 5vw;
         }
 
         a {
@@ -24,7 +24,8 @@
             border-width: 5px;
             font: bold;
             text-shadow: #333;
-            font-style: oblique;        }
+            font-style: oblique;        
+        }
 
         .link:hover {
             color: white;
@@ -33,7 +34,7 @@
         }
 
         .search-container {
-            width: 400px;
+            width: 36vw;
             display: flex;
             align-items: center;
             background-color: #fff;
@@ -110,7 +111,6 @@
             width: 100%;
             height: 5px;
             background-color: #fff;
-            /* Pages color */
         }
 
         .book-logo::before {
@@ -143,19 +143,19 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&display=swap');
 
         #slider-section {
-            height: 70vh;
+            height: 50vh;
             justify-content: center;
             align-items: center;
             background: #DFCAA0;
-            width: 200vh;
+            width: 93vw;
             text-align: center;
-            left: 35%;
+            left: 3vw;
             position: absolute;
             box-shadow: -10px 0 15px rgba(0, 0, 0, 0.3), 10px 0 15px rgba(0, 0, 0, 0.3);
         }
 
         .container {
-            width: 1600px;
+            width: 100%;
             margin: auto;
         }
 
@@ -170,8 +170,8 @@
 
         .previous,
         .next {
-            padding: 2px;
-            width: 30px;
+            padding: 0.5vw;
+            width: 3vw;
             cursor: pointer;
             border-radius: 50%;
             outline: none;
@@ -224,13 +224,7 @@
 
         .slide img {
             width: 100%;
-            height: 275px;
-        }
-
-        @media(max-width:1600px) {
-            .container {
-                width: 100%;
-            }
+            height: 25vh;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
@@ -241,7 +235,7 @@
 <body style="box-sizing: border-box; background: #F6E3BA;">
     <div style="height: 10px; background-color: #C8AD7E;box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);"></div>
     <span id="MINERVA" style="position: absolute; left: 10%;">
-        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: black;">MINERVA
+        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: black;font-size: 2.2vw;">MINERVA
             LIBRARY</h1>
     </span>
     <div id="nav">
@@ -256,21 +250,21 @@
                 <a href="donate.html" class="link"><u>Donate</u> &nbsp;</a>
                 <a href="borrow.html" class="link"><u>Borrow</u> &nbsp;</a>
                 <a href="record.html" class="link"><u>Records</u> &nbsp;</a>
-                <a href="" class="link"><u>Account</u> &nbsp;</a>
+                <a href="login.html" class="link"><u>Account</u> &nbsp;</a>
             </ul>
         </nav>
     </div>
     <div
-        style="position:relative; top: 8cap;  opacity: 85%;text-align: center;left: auto;right: auto;
-    border-top: 10px solid #C8AD7E;width: 205vh;height: 470h; 
+        style="position:relative; top: 8vh;  opacity: 85%;text-align: center;left: auto;right: auto;
+    border-top: 10px solid #C8AD7E;width: 100%;height: 470h; 
     box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.2); background-color: #FFEFCB;">
 
         <img src="homepage.jpg" alt="homepage"
-            style="position: relative;width:135vh;min-width: none;min-height: auto; padding: 20px; user-select:none; text-align: center;">
-        <div style="position: absolute; text-align: center;top: 20%; left: 35%;">
-            <h1 style="color: white;user-select: none; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);">MINERVA'S SPACE TO <span
-                    id="element"></span></h1>
-            <p style="color: white;font-size: large; position: absolute;user-select: none;">Open Today 9:00-5:00</p>
+            style="position: relative;width:135vh;max-width: 70%; min-width: none;min-height: auto; padding: 20px; user-select:none; text-align: center;">
+        <div style="position: absolute; text-align: center;top: 20%; left: 34vw;">
+            <h1 style="color: white;user-select: none; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);font-size: 3vh;">
+                MINERVA'S SPACE TO <span id="element"></span></h1>
+            <p style="color: white;font-size: 2vh; position: absolute;user-select: none;">Open Today 9:00-5:00</p>
 
             <div class="search-container">
                 <input type="text" id="search-bar" placeholder="Search our library catalog" />
@@ -281,7 +275,6 @@
         </div>
     </div>
     <br>
-    <div style="position:relative; height: 15vh;width: 10vh;">
 
         <section id="slider-section">
             <div class="container">

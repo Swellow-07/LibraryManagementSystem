@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate</title>
-    <style type="text/css">
-           #nav {
+</head>
+<style>
+    #nav {
             position: fixed;
-            right: 5cap;
+            right: 5vw;
             font-size: larger;
         }
 
         #logo {
             position: fixed;
-            left: 5%;
+            left: 5vw;
         }
 
         a {
@@ -23,19 +24,14 @@
             border-width: 5px;
             font: bold;
             text-shadow: #333;
-            font-style: oblique;        }
-
-        .link:hover {
-            color: white;
-            border-color: whitesmoke;
-            background-color: #DFCAA0;
+            font-style: oblique;        
         }
+
         .book-logo {
             position: relative;
             width: 50px;
             height: 60px;
             background-color: #e53935;
-            /* Red background for the cover */
             border-radius: 8px 8px 4px 4px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             cursor: pointer;
@@ -54,7 +50,6 @@
             width: 100%;
             height: 5px;
             background-color: #fff;
-            /* Pages color */
         }
 
         .book-logo::before {
@@ -83,12 +78,69 @@
             height: 100%;
             text-decoration: none;
         }
-    </style>
-</head>
-<body style="box-sizing: border-box; background: #DFCAA0; box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.2);">
-    <div style="position: fixed; height: 7cap;width: 205vh;right: 1%;left: 1%; background-color: #C8AD7E;box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);"></div>
+
+        .link:hover {
+            color: white;
+            border-color: whitesmoke;
+            background-color: #DFCAA0;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 85vh;
+        }
+        .innercontainer,.whitebg, .image,.form{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form{
+            position: absolute;
+            background-color: #C8AD7E;
+            height: 45%;
+            width: 50%;
+            opacity: 95%;
+            border: 20px;
+            border-radius: 2vh;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        input,select{
+            margin-top: 3vh;
+            margin-bottom: 3vh;
+            margin-left: 3vw;
+            width: 10vw;
+            height: 3vh;
+        }
+        .tohome,.torecord{
+            height: 15%;
+            width: 10%;
+            background-color: beige;
+            border: 5px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+        }
+        .tohome{
+            left: 5%;
+        }
+        .torecord{
+            right: 5%;
+        }
+        .redirect{
+            background-color: white;
+        }
+        .redirect:hover{
+            background-color:  #333;
+            color: whitesmoke;
+        }
+</style>
+<body style="box-sizing: border-box; background: #F6E3BA;">
+    <div style="height: 10px; background-color: #C8AD7E;box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);"></div>
     <span id="MINERVA" style="position: absolute; left: 10%;">
-        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: black;">MINERVA
+        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: black;font-size: 2.2vw;">MINERVA
             LIBRARY</h1>
     </span>
     <div id="nav">
@@ -103,42 +155,55 @@
                 <a href="donate.html" class="link"><u>Donate</u> &nbsp;</a>
                 <a href="borrow.html" class="link"><u>Borrow</u> &nbsp;</a>
                 <a href="record.html" class="link"><u>Records</u> &nbsp;</a>
-                <a href="" class="link"><u>Account</u> &nbsp;</a>
+                <a href="login.html" class="link"><u>Account</u> &nbsp;</a>
             </ul>
         </nav>
     </div>
-    <div style="position:static;background-color: #FFFDE7;">
-        
-            <img src="homepage.jpg" alt="homepage" style="position: absolute;height: 60vh; left: 18%; right: 25%;top: 13cap; opacity: 70%;">    
-    <div style="position: relative; top: 15cap; opacity: 85%;text-align: center;left: 30%;right: 25%;
-border-top: 10px solid #333; border-bottom: 5px solid #333 ;width:80vh;height:50vh;border-right: 5px solid #333 ;border-left: 5px solid #333; 
-box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.2); background-color: #FFEFCB;">
-    <h1><i>Donate a Book</i></h1>
-    <div style=" position: relative;text-align: center; background-color:#DFCAA0;padding: 10vh;border: 5px solid #333">
-    <form action="donate.php" method="post">
-    <input type="number" placeholder="Enter Your Student ID" name="studentid">
-    <input type="date" id="date" name="date">
-    <br><br>
-    <select name="bookname">
-        <option value="option1">Lord Of The Rings</option>
-        <option value="option2">Harry Potter</option>
-        <option value="option3">Book Of Night</option>
-        <option value="option4">Out Of Time</option>
-    </select>
-    <input type="number" id="number" placeholder="Enter no of donation" max="5" name="number">
-    <br><br>
-    <input type="submit">
-    </form>
-    </div>
+    <div style="position:relative; top: 8vh;  opacity: 85%;text-align: center;left: auto;right: auto;
+    border-top: 10px solid #C8AD7E;width: 100%;height: 470h; 
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.2); background-color: #FFEFCB;">
 
-    <div style="position:absolute; left:10%;top: 50%; background-color:#aa9065; height: 8vh; border: 5px solid#333;">
-        <br> <a href="index.html" style="align-items: center;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><span style="background-color: whitesmoke;">TO HOMEPAGE</span></a>
-    </div>
-    
-    <div style="position:absolute; right:10% ;top: 50%; background-color: #aa9065; height:8vh ;border: 5px solid#333">
-     
-        <br> <a href="record.html" style="align-items: center;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><span style="background-color: whitesmoke;">VIEW RECORDS</span></a>
-    </div>
+        
+
+        <div class="container">
+            <div class="whitebg" style="position: absolute; background-color: #eee5d1;height: 60%;width: 100%;top: 0;"></div>
+            <div class="whitebg" style="position: absolute; background-color: #dccfb4;height: 40%;width: 100%;bottom: 0;"></div>
+            <div class="innercontainer" style="background-color: #C8AD7E;width: 80%;height: 80%;border-radius: 5vh;opacity: 99%;box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.2);"> 
+            <div class="image">
+            <img src="homepage.jpg" alt="background" style="width: 85%; opacity: 90%; border-radius: 10px;user-select: none;">
+                <div class="form">
+
+                    <div class="tohome">
+                        <a href="index.html" class="redirect">To Home</a>
+                    </div>
+
+                    <div class="torecord">
+                        <a href="record.html" class="redirect">Records</a>
+                    </div>
+
+
+
+                    <form action="donate.php" method="post">
+                        <h1>DONATE A BOOK</h1>
+                        <input type="number" placeholder="Enter Your Student ID" name="studentid">
+                        <input type="date" id="date" name="date">
+                        <br>
+                        <select name="bookname">
+                            <option value="option1">Lord Of The Rings</option>
+                            <option value="option2">Harry Potter</option>
+                            <option value="option3">Book Of Night</option>
+                            <option value="option4">Out Of Time</option>
+                        </select>
+                        <input type="number" id="number" placeholder="Enter no of donations" max="5" name="number">
+                        <br>
+                        <input type="submit">
+                        </form>
+                </div>
+
+            </div>
+        </div>
+        
+        </div>
     </div>
     <script>
         function setCurrentDate() {
