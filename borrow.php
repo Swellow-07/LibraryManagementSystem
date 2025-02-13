@@ -1,48 +1,61 @@
 <?php
-include('db.php');
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "bookdatab";  // Make sure this is your correct database name
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $book_name = trim($_POST['book_name']); // Trim any spaces
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if form data is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $book_name = $_POST['book_name'];
     $student_id = $_POST['student_id'];
+    $quantity = $_POST['quantity'];
+    $date = $_POST['date'];
 
-    // Debugging: Print the book name and student ID to ensure they're passed correctly
-    echo "Book name: " . $book_name . "<br>";
-    echo "Student ID: " . $student_id . "<br>";
+    // Check if the book exists in the inventory and has enough stock
+    $checkQuery = "SELECT count FROM book_inventory WHERE book_name = '$book_name'";
+    $result = $conn->query($checkQuery);
 
-    // Prepare and execute the query
-    $stmt = $conn->prepare("SELECT num_books FROM borrowed_books WHERE book_name = ?");
-    $stmt->bind_param("s", $book_name);
+    if ($result->num_rows > 0) {
+        // Get the current quantity of the book
+        $row = $result->fetch_assoc();
+        $current_quantity = $row['count'];
 
-    // Check if the query runs successfully
-    if (!$stmt->execute()) {
-        echo "<script>alert('Error executing query');</script>";
-    } else {
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $current_books = $row['num_books'];
+        if ($current_quantity >= $quantity) {
+            // Update the quantity in the database
+            $new_quantity = $current_quantity - $quantity;
+            $updateQuery = "UPDATE book_inventory SET count = $new_quantity WHERE book_name = '$book_name'";
+            
+            if ($conn->query($updateQuery) === TRUE) {
+                // Insert record into borrow history (if required)
+                // $insertQuery = "INSERT INTO borrow_history (book_name, student_id, quantity, date) VALUES ('$book_name', '$student_id', '$quantity', '$date')";
+                // $conn->query($insertQuery);
 
-            if ($current_books > 0) {
-                // Decrease the number of books in the records
-                $stmt = $conn->prepare("UPDATE borrowed_books SET num_books = num_books - 1 WHERE book_name = ?");
-                $stmt->bind_param("s", $book_name);
-                $stmt->execute();
-                echo "<script>alert('Book borrowed successfully by Student ID: $student_id');</script>";
+                echo "Book borrowed successfully. <br>";
+                echo "Book Name: $book_name<br>";
+                echo "Student ID: $student_id<br>";
+                echo "Quantity Borrowed: $quantity<br>";
+                echo "Date: $date<br>";
+                header("Location: record.php"); // Redirect to the records page after borrowing
             } else {
-                echo "<script>alert('No books available');</script>";
+                echo "Error updating record: " . $conn->error;
             }
         } else {
-            echo "<script>alert('Book not found');</script>";
+            echo "Not enough books available. Current quantity: $current_quantity";
         }
+    } else {
+        echo "Book not found in inventory.";
     }
-
-    $stmt->close();
 }
+
+// Close connection
 $conn->close();
 ?>
-
-<form method="post">
-    Student ID: <input type="text" name="student_id" required><br>
-    Book Name: <input type="text" name="book_name" required><br>
-    <input type="submit" value="Borrow Book">
-</form>
