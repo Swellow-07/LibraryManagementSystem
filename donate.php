@@ -7,14 +7,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $book_name = $_POST['bookname'];
         $quantity = $_POST['quantity'];
 
-        // Ensure quantity is a number
+     
         if (!is_numeric($quantity)) {
             echo "<script>alert('Quantity must be a number');</script>";
             exit();
         }
 
-        // Add your donation logic here (insert into db or update counts)
-        // For example:
+        
         $stmt = $conn->prepare("UPDATE book_inventory SET count = count + ? WHERE book_name = ?");
         $stmt->bind_param("is", $quantity, $book_name);
         if ($stmt->execute()) {
