@@ -6,16 +6,178 @@
     <title>Donate</title>
 </head>
 <style>
-    /* Your styles remain unchanged */
+    #nav {
+            position: fixed;
+            right: 5vw;
+            font-size: larger;
+        }
+
+        #logo {
+            position: fixed;
+            left: 5vw;
+        }
+
+        a {
+            text-decoration: none;
+            font-family:fantasy;
+            color: black;
+            border-width: 5px;
+            font: bold;
+            text-shadow: #333;
+            font-style: oblique;        
+        }
+
+        .book-logo {
+            position: relative;
+            width: 50px;
+            height: 60px;
+            background-color: #e53935;
+            border-radius: 8px 8px 4px 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .book-logo:hover {
+            transform: scale(1.1);
+        }
+
+        .book-logo::before,
+        .book-logo::after {
+            content: "";
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            height: 5px;
+            background-color: #fff;
+        }
+
+        .book-logo::before {
+            left: 0;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .book-logo::after {
+            bottom: 10px;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .book-logo .book-spine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 100%;
+            background-color: #333;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .book-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            color: white;
+            border-color: whitesmoke;
+            background-color: #DFCAA0;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 85vh;
+        }
+        .innercontainer,.whitebg, .image,.form{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form{
+            position: absolute;
+            background-color: #C8AD7E;
+            height: 45%;
+            width: 50%;
+            opacity: 95%;
+            border: 20px;
+            border-radius: 2vh;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        input,select{
+            margin-top: 3vh;
+            margin-bottom: 3vh;
+            margin-left: 3vw;
+            width: 10vw;
+            height: 3vh;
+        }
+        .tohome,.torecord{
+            height: 15%;
+            width: 10%;
+            background-color: beige;
+            border: 5px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+        }
+        .tohome{
+            left: 5%;
+        }
+        .torecord{
+            right: 5%;
+        }
+        .redirect{
+            background-color: white;
+        }
+        .redirect:hover{
+            background-color:  #333;
+            color: whitesmoke;
+        }
 </style>
 <body style="box-sizing: border-box; background: #F6E3BA;">
-    <!-- Your header and navigation remain unchanged -->
+    
+    <div style="height: 10px; background-color: #C8AD7E;box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);"></div>
+    <span id="MINERVA" style="position: absolute; left: 10%;">
+        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: black;font-size: 2.2vw;">MINERVA
+            LIBRARY</h1>
+    </span>
+    <div id="nav">
+        <nav>
+            <ul>
+                <span id="logo"><a href="index.html" class="book-link">
+                        <div class="book-logo">
+                            <div class="book-spine"></div>
+                            HHOME
+                        </div>
+                    </a></span>
+                <a href="donate.html" class="link"><u>Donate</u> &nbsp;</a>
+                <a href="borrow.html" class="link"><u>Borrow</u> &nbsp;</a>
+                <a href="record.php" class="link"><u>Records</u> &nbsp;</a>
+                <a href="login.html" class="link"><u>Account</u> &nbsp;</a>
+            </ul>
+        </nav>
+    </div>
+
+   
     <div style="position:relative; top: 8vh;  opacity: 85%;text-align: center;left: auto;right: auto; border-top: 10px solid #C8AD7E;width: 100%;height: 470h; box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.2); background-color: #FFEFCB;">
 
         <div class="container">
-            <!-- Your container divs remain unchanged -->
+            <div class="whitebg" style="position: absolute; background-color: #eee5d1;height: 60%;width: 100%;top: 0;"></div>
+            <div class="whitebg" style="position: absolute; background-color: #dccfb4;height: 40%;width: 100%;bottom: 0;"></div>
+            <div class="innercontainer" style="background-color: #C8AD7E;width: 80%;height: 80%;border-radius: 5vh;opacity: 99%;box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.2);"> 
+            <div class="image">
+                <img src="homepage.jpg" alt="background" style="width: 85%; opacity: 90%; border-radius: 10px;user-select: none;">
             <div class="form">
-                <!-- Your form and navigation remain unchanged -->
+                <div class="tohome">
+                    <a href="index.html" class="redirect">To Home</a>
+                </div>
+
+                <div class="torecord">
+                    <a href="record.php" class="redirect">Records</a>
+                </div>
 
                 <form action="donate.php" method="POST">
                     <h1>DONATE A BOOK</h1>
@@ -39,23 +201,23 @@
         </div>
     </div>
     <script>
-        // Set the current date in the date field
+        
         function setCurrentDate() {
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('date').value = today;
         }
         setCurrentDate();
 
-        // Handle book donation
+  
         document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form from submitting the traditional way
+            event.preventDefault(); 
 
             let studentid = document.getElementById('studentid').value;
             let date = document.getElementById('date').value;
             let bookname = document.getElementById('bookname').value;
             let quantity = document.getElementById('quantity').value;
 
-            console.log(studentid, date, bookname, quantity); // Debug log
+            console.log(studentid, date, bookname, quantity); 
 
             if (!studentid || !date || !bookname || !quantity) {
                 alert('Please fill in all fields.');
